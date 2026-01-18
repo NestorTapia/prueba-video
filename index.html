@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        /* Contenedor principal del video */
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 640px; /* Puedes cambiar el ancho aquí */
-            aspect-ratio: 16 / 9; /* Mantiene la proporción 16:9 automáticamente */
+            max-width: 640px;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
-            border-radius: 12px; /* Bordes redondeados estéticos */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            background-color: #000; /* Fondo negro mientras carga */
         }
 
-        /* Capa invisible que bloquea el área superior (Perfil y Compartir) */
+        /* Bloqueo para ocultar perfil y botones superiores */
         .bloqueo-superior {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 75px; /* Altura suficiente para cubrir el título y botones */
+            height: 60px;
             z-index: 10;
-            background: rgba(0,0,0,0); /* Transparente */
-            pointer-events: auto; /* Captura el clic para que no llegue a YouTube */
+            background: transparent;
         }
 
-        /* El reproductor de YouTube */
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -41,12 +38,11 @@
 
     <div class="video-container">
         <div class="bloqueo-superior"></div>
-
         <iframe 
-            src="https://www.youtube-nocookie.com/embed/4ilIPhLMiSc?controls=1&modestbranding=1&rel=0&iv_load_policy=3" 
-            title="Reproductor de video" 
+            src="https://www.youtube.com/embed/4ilIPhLMiSc?rel=0&modestbranding=1&iv_load_policy=3" 
+            title="YouTube video player" 
             frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
         </iframe>
     </div>
